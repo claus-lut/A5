@@ -7,6 +7,22 @@ html
       include ../src/style.css
 
   body
-    div(id="board")
     script(src='src/index.js') 
+
+    div(id="board")
+      table(id="ttttable")
+        each val in [1, 2, 3, 4, 5]
+          tr
+            each val2 in [1, 2, 3, 4, 5]
+              td    
+
+    script.
+      //document.getElementById("board").innerHTML = tabletext;
+
+      var table = document.getElementById("ttttable");
+        for (var i = 0, row; (row = table.rows[i]); i++) {
+          for (var j = 0, col; (col = row.cells[j]); j++) {
+            col.addEventListener("click", cellClick, false);
+          }
+        }
 
